@@ -38,5 +38,8 @@ post '/callback' do
     h.post_content(line_url, body: line_content.to_json, header: line_headers)
   rescue HTTPClient::BadResponseError => e
     puts e.res.body
+  rescue HTTPClient::KeepAliveDisconnected => e
+    puts e.cause
+    puts e.sess
   end
 end
