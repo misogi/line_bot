@@ -21,7 +21,6 @@ post '/callback' do
   results = params['result']
   result = results[0]
   to = result['content']['from']
-  pp params
   puts "message to #{to}"
   RestClient.proxy = ENV["FIXIE_URL"]
   line_content = {
