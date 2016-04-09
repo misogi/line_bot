@@ -13,7 +13,7 @@ channel = 1383378250
 type = 138311609000106303
 
 get '/' do
-  'Hello, world'
+  'OK'
 end
 
 post '/callback' do
@@ -35,5 +35,5 @@ post '/callback' do
     }
   }
 
-  h.post_content(url, content, headers)
+  h.post_content(line_url, content, headers)
 end
