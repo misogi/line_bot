@@ -21,6 +21,7 @@ post '/callback' do
   results = params['result']
   result = results[0]
   to = result['from']
+  puts "message to #{to}"
   RestClient.proxy = ENV["FIXIE_URL"]
   line_content = {
     to: [to],
@@ -37,4 +38,6 @@ post '/callback' do
     response = RestClient.post(line_url, line_content.to_json, line_headers)
     puts response.to_str
   end
+
+  'OK'
 end
