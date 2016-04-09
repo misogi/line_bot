@@ -34,6 +34,9 @@ post '/callback' do
     }
   }
 
-  pres = h.post_content(line_url, body: line_content.to_json, header: line_headers)
-  puts pres.body.read
+  begin
+    h.post_content(line_url, body: line_content.to_json, header: line_headers)
+  rescue HTTPClient::BadResponseError => e
+    puts e.res.body.read
+  end
 end
