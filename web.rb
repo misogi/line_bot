@@ -18,7 +18,6 @@ end
 
 post '/callback' do
   res = request.body.read
-  puts res
   params = JSON.parse(res)
   results = params['result']
   result = results[0]
@@ -35,5 +34,5 @@ post '/callback' do
     }
   }
 
-  h.post_content(line_url, content, line_headers)
+  h.post_content(line_url, content.to_json, line_headers)
 end
