@@ -34,8 +34,14 @@ post '/callback' do
     }
   }
 
+  response = nil
   begin
     response = RestClient.post(line_url, line_content.to_json, line_headers)
+  rescue  RestClient::Forbidden => e
+    pp e
+  end
+
+  if response
     puts response.to_str
   end
 
