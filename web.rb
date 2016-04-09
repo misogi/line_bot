@@ -19,7 +19,7 @@ end
 
 post '/callback' do
   params = JSON.parse(request.body.read, {:symbolize_names => true})
-  results = params[]
+  results = params[:result]
   result = results[0]
   to = result[:from]
   h = HTTPClient.new
