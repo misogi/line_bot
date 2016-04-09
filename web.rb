@@ -10,7 +10,7 @@ line_headers = {
 }
 line_url = 'https://trialbot-api.line.me/v1/events'
 channel = 1383378250
-type = 138311609000106303
+type = '138311609000106303'
 
 get '/' do
   'OK'
@@ -23,8 +23,8 @@ post '/callback' do
   result = results[0]
   to = result['from']
   h = HTTPClient.new
-  content = {
-    to: to,
+  line_content = {
+    to: [to],
     toChannel: channel,
     eventType: type,
     content: {
@@ -34,5 +34,5 @@ post '/callback' do
     }
   }
 
-  h.post_content(line_url, content.to_json, line_headers)
+  h.post_content(line_url, line_content.to_json, line_headers)
 end
