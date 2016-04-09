@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'json'
 require 'httpclient'
+require 'pp'
 
 line_headers = {
   'Connection' => 'close',
@@ -41,7 +42,7 @@ post '/callback' do
     puts e.res.body
   rescue HTTPClient::KeepAliveDisconnected => e
     puts 'keep alive disconnected'
-    puts e.cause
-    puts e.sess
+    pp e.sess.get_body
+    pp e.sess.get_header
   end
 end
