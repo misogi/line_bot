@@ -18,7 +18,9 @@ get '/' do
 end
 
 post '/callback' do
-  params = JSON.parse(request.body.read)
+  res = request.body.read
+  puts res
+  params = JSON.parse(res)
   results = params['result']
   result = results[0]
   to = result['from']
