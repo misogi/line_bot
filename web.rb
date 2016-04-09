@@ -17,7 +17,7 @@ get '/' do
   'Hello, world'
 end
 
-post '/line' do
+post '/callback' do
   params = JSON.parse(request.body.read)
   to = params[:result][0][:from]
   h = HTTPClient.new
