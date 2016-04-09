@@ -22,7 +22,7 @@ post '/callback' do
   results = params['result']
   result = results[0]
   to = result['from']
-  h = HTTPClient.new
+  h = HTTPClient.new(ENV["FIXIE_URL"])
   line_content = {
     to: [to],
     toChannel: channel,
