@@ -34,6 +34,7 @@ post '/callback' do
   }
 
   begin
-    RestClient.post(line_url, line_content.to_json, line_headers)
+    response = RestClient.post(line_url, line_content.to_json, line_headers)
+    puts response.to_str
   end
 end
