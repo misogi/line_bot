@@ -13,7 +13,6 @@ channel = 1383378250
 type = 138311609000106303
 
 get '/' do
-  puts 'log log hello'
   'Hello, world'
 end
 
@@ -36,5 +35,5 @@ post '/callback' do
     }
   }
 
-  h.post(url, content, headers)
+  h.post_content(url, content, headers)
 end
