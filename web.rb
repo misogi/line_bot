@@ -3,6 +3,7 @@ require 'json'
 require 'httpclient'
 
 line_headers = {
+  'Connection' => 'close',
   'Content-Type' => 'application/json; charset=UTF-8',
   'X-Line-ChannelID' => ENV["LINE_CHANNEL_ID"],
   'X-Line-ChannelSecret' => ENV["LINE_CHANNEL_SECRET"],
