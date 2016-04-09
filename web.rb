@@ -9,7 +9,7 @@ headers = {
   'X-Line-Trusted-User-With-ACL' => ENV["LINE_CHANNEL_MID"]
 }
 line_url = 'https://trialbot-api.line.me/v1/events'
-channel = 1441301333
+channel = 1383378250
 type = 138311609000106303
 
 get '/' do
