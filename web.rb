@@ -40,6 +40,7 @@ post '/callback' do
   rescue HTTPClient::BadResponseError => e
     puts e.res.body
   rescue HTTPClient::KeepAliveDisconnected => e
+    puts 'keep alive disconnected'
     puts e.cause
     puts e.sess
   end
