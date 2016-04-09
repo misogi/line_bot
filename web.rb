@@ -43,6 +43,6 @@ post '/callback' do
   rescue HTTPClient::KeepAliveDisconnected => e
     puts 'keep alive disconnected'
     pp e.sess.get_body
-    pp e.sess.get_header
+    pp e.sess
   end
 end
