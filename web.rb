@@ -26,8 +26,8 @@ post '/callback' do
   h = HTTPClient.new(ENV["FIXIE_URL"])
   line_content = {
     to: [to],
-    toChannel: channel,
-    eventType: type,
+    toChannel: 1383378250,
+    eventType: '138311608800106203',
     content: {
       contentType: 1,
       toType: 1,
