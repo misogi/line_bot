@@ -18,7 +18,7 @@ get '/' do
 end
 
 post '/callback' do
-  params = JSON.parse(request.body.read, {:symbolize_names => true})
+  params = JSON.parse(request.body.read, symbolize_names: true)
   results = params[:result]
   result = results[0]
   to = result[:from]
