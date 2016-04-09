@@ -2,7 +2,7 @@ require 'sinatra'
 require 'json'
 require 'httpclient'
 
-headers = {
+line_headers = {
   'Content-Type' => 'application/json; charset=UTF-8',
   'X-Line-ChannelID' => ENV["LINE_CHANNEL_ID"],
   'X-Line-ChannelSecret' => ENV["LINE_CHANNEL_SECRET"],
@@ -35,5 +35,5 @@ post '/callback' do
     }
   }
 
-  h.post_content(line_url, content, headers)
+  h.post_content(line_url, content, line_headers)
 end
