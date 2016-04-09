@@ -18,10 +18,10 @@ get '/' do
 end
 
 post '/callback' do
-  params = JSON.parse(request.body.read, symbolize_names: true)
-  results = params[:result]
+  params = JSON.parse(request.body.read)
+  results = params['result']
   result = results[0]
-  to = result[:from]
+  to = result['from']
   h = HTTPClient.new
   content = {
     to: to,
