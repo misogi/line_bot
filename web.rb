@@ -34,5 +34,6 @@ post '/callback' do
     }
   }
 
-  h.post_content(line_url, line_content.to_json, line_headers)
+  pres = h.post_content(line_url, body: line_content.to_json, header: line_headers)
+  puts pres.body.read
 end
