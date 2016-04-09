@@ -13,14 +13,16 @@ channel = 1441301333
 type = 138311609000106303
 
 get '/' do
-  'Hello, world'
   puts 'log log hello'
+  'Hello, world'
 end
 
 post '/line' do
   params = JSON.parse(request.body.read)
+  to = params[:result][0][:from]
   h = HTTPClient.new
   content = {
+    to: to,
     toChannel: channel,
     eventType: type,
     content: {
