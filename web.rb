@@ -20,7 +20,7 @@ post '/callback' do
   params = JSON.parse(res)
   results = params['result']
   result = results[0]
-  to = result['from']
+  to = result['content']['from']
   pp params
   puts "message to #{to}"
   RestClient.proxy = ENV["FIXIE_URL"]
