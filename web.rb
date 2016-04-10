@@ -56,7 +56,10 @@ post '/callback' do
   response = nil
   begin
     response = RestClient.post(line_url, line_content.to_json, line_headers)
-  rescue  RestClient::Forbidden => e
+  rescue RestClient::Forbidden => e
+    pp e
+  rescue RestClient::BadRequest => e
+    puts '400 bad request'
     pp e
   end
 
