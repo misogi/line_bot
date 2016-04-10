@@ -11,6 +11,15 @@ line_headers = {
 }
 line_url = 'https://trialbot-api.line.me/v1/events'
 
+def answer(text)
+  if text.match(/いま何時/)
+    h = (0..23).to_a.sample
+    "#{h}時だぞ！"
+  else
+    'どんどん'
+  end
+end
+
 get '/' do
   'OK'
 end
@@ -21,7 +30,9 @@ post '/callback' do
   results = params['result']
   result = results[0]
   to = result['content']['from']
+  text = result['content']['text']
   puts "message to #{to}"
+  text_response = answer(text)
   RestClient.proxy = ENV["FIXIE_URL"]
   line_content = {
     to: [to],
@@ -30,7 +41,7 @@ post '/callback' do
     content: {
       contentType: 1,
       toType: 1,
-      text: 'どんどん'
+      text: text_response
     }
   }
 
