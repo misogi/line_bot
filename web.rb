@@ -11,7 +11,7 @@ line_headers = {
 }
 line_url = 'https://trialbot-api.line.me/v1/events'
 
-setten_t = <<EOS
+@setten_t = <<EOS
 ここが原点だとぉー、ここが原点だとぅー
 この点はでねぇよぉ！ダメだよぉー。
 誘惑振り切ってこうだ。おーん？接点ｔ！！！
@@ -22,7 +22,7 @@ def answer(text)
     h = (0..23).to_a.sample
     "#{h}時だぞ！"
   elsif text.match(/接点t/i)
-    setten_t
+    @setten_t
   else
     'どんどん'
   end
